@@ -6,7 +6,6 @@ var firstPike = {
   minCust: 23,
   maxCust: 65,
   avgCookSales: 6.3,
-  storeLoc: '1st and Pike',
   hourlyCook: [],
 
   randCustperHour: function (){
@@ -35,22 +34,25 @@ var firstPike = {
     var cookieSales = document.getElementById('cookie-sales');
     for(var index = 0; index < storeHours.length; index++){
       var listElement = document.createElement('li');
-      listElement.textContent = storeHours[index] + ' at ' + this.storeLoc + ', Cookies: ' + this.hourlyCook[index] + '.';
+      listElement.textContent = storeHours[index] + ', ' + 'Cookies: ' + this.hourlyCook[index] + '.';
       cookieSales.appendChild(listElement);
     }
   }
 };
 
-/*  listTotal: function(){
-    var totalSales = document.getElementById('total-sales');
-    for(var index = 0; index < this.totalCookies.length; index++){
-      var listElement2 = document.createElement('li');
-      listElement2.textContent = 'Total ' + this.totalCookies + '.';
-      totalSales.appendChild(listElement2);
-      console.log(listTotal);
-    }
-  }
-}; */   //  How do you append the total number of sales to the list?
+/* //Calling obeject.functions and DOM code
+firstPike.cookiesPurHour();
+firstPike.cookiesSum();
+
+Replace listCookieSales with this...
+var myList = document.getElementById('firstandpike');  **Eve change name of store for each object
+
+for (var i = 0; i < firstPike.results.length; i++) {
+var lisrEl = document.createElement('li';
+listEl.textcontent = times[i] + ' ' + firstPike.results[i]);
+myList.appendChild(listEl);
+}
+   */   //  How do you append the total number of sales to the list?
 
 firstPike.cookiesPurHour();
 firstPike.totalCookies();
