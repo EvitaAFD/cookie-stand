@@ -5,29 +5,56 @@ var storeHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2P
 var firstPike = {
   minCust: 23,
   maxCust: 65,
-  AvgCookSales: 6.3
+  avgCookSales: 6.3,
+  hourlyCook: [],
+  randCustperHour: function (){
+    return Math.floor(Math.random() * (this.maxCust - this.minCust + 1)) + this.minCust;
+  },
+  cookiesPurHour: function(){
+    for(var index = 0; index < storeHours.length; index++) {
+      var amountofCookiesPur = Math.floor(this.avgCookSales * this.randCustperHour());
+      this.hourlyCook.push(amountofCookiesPur);
+    }
+    console.log(this.hourlyCook);
+    return this.hourlyCook;
+  },
+  totalCookies: function(){
+    var total = 0;
+    for(var index = 0; index < this.hourlyCook.length; index++){
+      total += this.hourlyCook[index];
+    }
+    console.log(total);
+    return total;
+  }
+
 };
+firstPike.cookiesPurHour();
+firstPike.totalCookies();
 
 var SeaTacAir = {
   minCust: 3,
   maxCust: 24,
-  AvgCookSales: 1.2
+  avgCookSales: 1.2,
+  hourlyCook: [],
 };
 
 var SeaCenter = {
   minCust: 11,
   maxCust: 38,
-  AvgCookSales: 3.7
+  avgCookSales: 3.7,
+  hourlyCook: [],
 };
 
 var CapHill = {
   minCust: 20,
   maxCust: 38,
-  AvgCookSales: 2.3
+  avgCookSales: 2.3,
+  hourlyCook: [],
 };
 
 var Alki = {
   minCust: 2,
   maxCust: 16,
-  AvgCookSales: 4.6
+  avgCookSales: 4.6,
+  hourlyCook: [],
 };
