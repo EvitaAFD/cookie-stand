@@ -25,11 +25,20 @@ var firstPike = {
     }
     console.log(total);
     return total;
-  }
+  },
+listCookieSales: function(){
+  var cookieSales = document.getElementById('cookie-sales');
+  for(index = 0; index < storeHours; index++){
+  console.log(storeHours[index]);
+  var listElement = document.createElement('li');
 
+    }
+   }
+  }
 };
 firstPike.cookiesPurHour();
 firstPike.totalCookies();
+firstPike.listCookieSales();
 
 var SeaTacAir = {
   minCust: 3,
