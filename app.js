@@ -26,14 +26,13 @@ var firstPike = {
     console.log(total);
     return total;
   },
-listCookieSales: function(){
-  var cookieSales = document.getElementById('cookie-sales');
-  for(index = 0; index < storeHours; index++){
-  console.log(storeHours[index]);
-  var listElement = document.createElement('li');
-
+  listCookieSales: function(){
+    var cookieSales = document.getElementById('cookie-sales');
+    for(var index = 0; index < storeHours.length; index++){
+      var listElement = document.createElement('li');
+      listElement.textContent = 'Store hour: ' + storeHours[index] + ', Cookies: ' + this.hourlyCook[index] + '.';
+      cookieSales.appendChild(listElement);
     }
-   }
   }
 };
 firstPike.cookiesPurHour();
