@@ -39,28 +39,36 @@ Store.prototype.table = function() {
   this.totalCook();
   var tableEl = document.getElementById('stores');
   console.log(tableEl + 'tableEl');
-  for(var i = 0; i < stores.length; i++){
+  for(var i = 0; i < 1; i++){
     var rowData = stores[i];
-  //loop through inside of stores data
-    var rowEl = document.createElement('tr');
-    console.log('results stores for loop', this.results);
-//write stores as row 1
+    //write stores as row 1
     var tH = document.createElement('th');
     tH.textContent = rowData;
+    console.log('table heading',tH);
+    //loop through inside of stores data
+    var rowEl = document.createElement('tr');
+    console.log('var rowEl', rowEl);
 
     rowEl.appendChild(tH);
+    console.log('rowData=stores', rowData);
+    //console.log('results stores for loop', rowEl);
+
     //nested loop to access each piece of results and loop through content of array
     for(var j = 0; j < this.results.length; j++){
-      console.log('results content', this.results);
       var content = this.results[j];
+      console.log('results content', this.results);
 
       var dataEl = document.createElement('td');
       dataEl.textContent = content;
   //content is coming from array and added td tag
+      //console.log('content', content);
       rowEl.appendChild(dataEl);
+      console.log('data element', dataEl);
+      //console.log('data element', dataEl);
+      tableEl.appendChild(rowEl);
+      console.log('row element', rowEl);
     }
   }
-  tableEl.appendChild(rowEl);
 };
 
 //Instance of 1st and Pike Store
