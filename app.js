@@ -1,6 +1,6 @@
 'use strict';
 
-var storeHours = [' ', '6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total: '];
+var storeHours = ['6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total: '];
 var stores = ['First and Pike', 'SeaTac Airport', 'Seattle Center', 'Capitol Hill', 'Alki'];
 
 //Object Constructor
@@ -43,14 +43,15 @@ Store.prototype.table = function() {
     var rowData = stores[i];
   //loop through inside of stores data
     var rowEl = document.createElement('tr');
-    console.log('results', this.results);
-
+    console.log('results stores for loop', this.results);
+//write stores as row 1
     var tH = document.createElement('th');
     tH.textContent = rowData;
 
     rowEl.appendChild(tH);
     //nested loop to access each piece of results and loop through content of array
     for(var j = 0; j < this.results.length; j++){
+      console.log('results content', this.results);
       var content = this.results[j];
 
       var dataEl = document.createElement('td');
@@ -67,23 +68,19 @@ var firstPike = new Store(23, 65, 6.3);
 //Calling obeject methods and DOM code
 firstPike.table();
 
-// //Instance of SeaTac Airport Store
-// var seaTacAir = new Store(3, 24, 1.2);
-// //Calling obeject methods and DOM code
-// seaTacAir.storeInfo();
-// seaTacAir.table();
-// //Instance of Seattle Center Store
-// var seaCenter = new Store(11, 38, 3.7);
-// //Calling obeject methods and DOM code
-// seaCenter.storeInfo();
-// seaCenter.table();
-// //Instance of Capitol Hill Store
-// var capHill = new Store(20, 38, 2.3);
-// //Calling obeject methods and DOM code
-// capHill.storeInfo();
-// capHill.table();
-// //Instance of Alki Store
-// var alki = new Store(2, 16, 4.6);
-// //Calling obeject methods and DOM code
-// alki.storeInfo();
-// alki.table();
+//Instance of SeaTac Airport Store
+var seaTacAir = new Store(3, 24, 1.2);
+//Calling obeject methods and DOM code
+seaTacAir.table();
+//Instance of Seattle Center Store
+var seaCenter = new Store(11, 38, 3.7);
+//Calling obeject methods and DOM code
+seaCenter.table();
+//Instance of Capitol Hill Store
+var capHill = new Store(20, 38, 2.3);
+//Calling obeject methods and DOM code
+capHill.table();
+//Instance of Alki Store
+var alki = new Store(2, 16, 4.6);
+//Calling obeject methods and DOM code
+alki.table();
