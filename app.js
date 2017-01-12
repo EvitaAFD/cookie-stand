@@ -1,6 +1,6 @@
 'use strict';
 
-var storeHours = [,'6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total: '];
+var storeHours = [,'6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total'];
 var stores = [];
 
 //Object Constructor
@@ -17,7 +17,7 @@ Store.prototype.custNum = function(){
 };
 //Method for each store
 Store.prototype.storeInfo = function(){
-  for(var index = 1; index <= storeHours.length - 1; index++) {
+  for(var index = 1; index <= (storeHours.length - 2); index++) {
     //number of cookies
     var numCookies = Math.round(this.custNum() * this.avgCookSales);
     console.log(numCookies);
@@ -46,10 +46,9 @@ Store.prototype.table = function() {
     var rowEl = document.createElement('tr');
     console.log('results stores for loop', this.results);
 //write stores as row 1
-    var tH = document.createElement('th');
-    tH.textContent = rowData;
+    rowEl.textContent = rowData;
 
-    rowEl.appendChild(tH);
+    tableEl.appendChild(rowEl);
     //nested loop to access each piece of results and loop through content of array
     for(var j = 0; j < this.results.length; j++){
       console.log('results content', this.results);
@@ -63,6 +62,19 @@ Store.prototype.table = function() {
   }
   tableEl.appendChild(rowEl);
 };
+
+//create table header
+var header = function() {
+  for (var i = 0; i < storeHours.length; i++) {
+    var hours = storeHours[i];
+    var headEl = document.getElementById('stores');
+    var data = document.createElement('th');
+    data.textContent = hours;
+    headEl.appendChild(data);
+  }
+};
+
+header();
 
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
