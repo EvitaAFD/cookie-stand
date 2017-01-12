@@ -10,6 +10,22 @@
         <tfoot id="totals"></tfoot>
       </table>
     </div>
+    <section id="form-section">
+      <form id="sales-form">
+        <fieldset>
+          <legend>New Store Data</legend>
+            <label for="storeName">Name:</label>
+            <input name="storeName" id="name-input" type="text" required="required" />
+            <label for="minCust">Minimum Customer:</label>
+            <input name="minCust" id="min-input" type="number" required="required" />
+            <label for="maxCust">Maximum Cutomer:</label>
+            <input name="maxCust" id="max-input" type="number" required="required" />
+            <label for="avgCookSales">Average Sale</label>
+            <input name="avgCookSales" id="avg-input" type="decimal" required="required" />
+            <button type="submit" id="submit-button">SUBMIT</button>
+          </fieldset>
+        </form>
+      </section>
    </body>
   <script src="app.js"></script>
 </html>

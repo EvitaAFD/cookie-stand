@@ -51,7 +51,7 @@ Store.prototype.table = function() {
     tableEl.appendChild(rowEl);
     //nested loop to access each piece of results and loop through content of array
     for(var j = 0; j < this.results.length; j++){
-      console.log('results content', this.results);
+      // console.log('results content', this.results);
       var content = this.results[j];
 
       var dataEl = document.createElement('td');
@@ -76,13 +76,20 @@ var header = function() {
 
 header();
 
-//create table footer for totals
+//create event listener for form submission
+var formEl = document.getElementById('sales-form');
+
+formEl.addEventListener('submit', function(event){
+  event.preventDefault();
+  event.stopPropagation();
+
+  stores.push(new Store(event.target.storeName.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookSales.value).table());
+}, false);
 
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
 //Calling obeject methods and DOM code
 firstPike.table();
-
 //Instance of SeaTac Airport Store
 var seaTacAir = new Store('SeaTac Airport', 3, 24, 1.2);
 //Calling obeject methods and DOM code
