@@ -67,7 +67,7 @@ Store.prototype.table = function() {
 var header = function() {
   for (var i = 0; i < storeHours.length; i++) {
     var hours = storeHours[i];
-    var headEl = document.getElementById('stores');
+    var headEl = document.getElementById('times');
     var data = document.createElement('th');
     data.textContent = hours;
     headEl.appendChild(data);
@@ -75,6 +75,8 @@ var header = function() {
 };
 
 header();
+
+//create table footer for totals
 
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
