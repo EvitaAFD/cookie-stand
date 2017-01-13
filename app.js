@@ -85,24 +85,34 @@ formEl.addEventListener('submit', function(event){
 //push data from new store input provided by event listener, runs through table method, and appends to table
   stores.push(new Store(event.target.storeName.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookSales.value).table());
 }, false);
-//create footer of daily totals
-var tableFooterArray = [];
 
-var footer = function () {
-  var sum = 0;
-  for(var i = 0; i < firstPike.results.length; i++){
-    for(var j = 0; j < stores.length; j++){
-      sum += stores[j].results[i];
+//Total row
+function makeTotalRow(){
+  var rowElement = document.createElement('tr');
+  var dataElement = document.createElement('td');
+  dataElement.textContent = 'totals';
+  dataElement.setAttribute = ('class', 'locNameTable');
+  rowElement.appendChild(dataElement);
+  for(var i = 0; i < storeHours.length; i++){
+    for(var j = 0; j < stores.length; j++) {
+      results[i] += stores[j].totalCook;
+      console.log('results in for loop part 2 ', results[i]);
     }
-    tableFooterArray.push(sum);
-    var footEl = document.getElementById('totals');
-    var footData = document.createElement('tfoot');
-    footData.textContent = tableFooterArray;
-    footEl.appendChild(footData);
+    dataElement = document.createElement('td');
+    dataElement.textContent = results[i];
+    rowElement.appendChild(dataElement);
   }
-  console.log(tableFooterArray);
-  return tableFooterArray;
+  for(var i = 0; i < stores.length; i++){
+    grandTotal += stores[i].results;
+  }
+  dataElement = document.createElement('td');
+  dataElement.textContent = grandTotal;
+  dataElement.setAttribute('class', 'locNameTable');
+  rowElement.appendChild(dataElement);
+  table.appendChild(rowElement);
 };
+console.log('total row', makeTotalRow);
+
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
 //Calling obeject methods and DOM code
