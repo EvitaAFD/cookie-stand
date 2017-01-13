@@ -1,16 +1,32 @@
 * {
-  background-color: #EBF5FB ;
+  background-color: #BBFFF0;
 }
 
 h1 {
 
   font-family: 'Mystery Quest', cursive;
   font-size: 60px;
-  color: #CD5C5C;
+  color: #FB7B66;
   text-align: center;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  margin-bottom: 5px;
 
 }
 
+h2 {
+  font-family: 'Mystery Quest', cursive;
+  font-size: 40px;
+  color: #FB7B66;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 1%;
+  padding-bottom: 1%
+}
 #fish {
-padding:inherit;
+height: 200px;
+width: 600px;
+margin-top: 10px;
+display: block;
+
 }
