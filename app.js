@@ -1,6 +1,6 @@
 'use strict';
 
-var storeHours = [,'6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total'];
+var storeHours = ['Location','6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total'];
 var stores = [];
 
 //Object Constructor
@@ -85,7 +85,24 @@ formEl.addEventListener('submit', function(event){
 //push data from new store input provided by event listener, runs through table method, and appends to table
   stores.push(new Store(event.target.storeName.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookSales.value).table());
 }, false);
+//create footer of daily totals
+var tableFooterArray = [];
 
+var footer = function () {
+  var sum = 0;
+  for(var i = 0; i < firstPike.results.length; i++){
+    for(var j = 0; j < stores.length; j++){
+      sum += stores[j].results[i];
+    }
+    tableFooterArray.push(sum);
+    var footEl = document.getElementById('totals');
+    var footData = document.createElement('tfoot');
+    footData.textContent = tableFooterArray;
+    footEl.appendChild(footData);
+  }
+  console.log(tableFooterArray);
+  return tableFooterArray;
+};
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
 //Calling obeject methods and DOM code

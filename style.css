@@ -1,0 +1,16 @@
+* {
+  background-color: #EBF5FB ;
+}
+
+h1 {
+
+  font-family: 'Mystery Quest', cursive;
+  font-size: 60px;
+  color: #CD5C5C;
+  text-align: center;
+
+}
+
+#fish {
+padding:inherit;
+}
