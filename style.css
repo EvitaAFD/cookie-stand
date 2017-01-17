@@ -2,6 +2,17 @@
   background-color: #BBFFF0;
 }
 
+.website-top {
+
+border: solid;
+border-color: darkgray;
+margin-top: 2%;
+margin-right: 10%;
+margin-left: 10%;
+margin-bottom: 5%;
+
+}
+
 h1 {
 
   font-family: 'Mystery Quest', cursive;
@@ -14,19 +25,71 @@ h1 {
 
 }
 
-h2 {
-  font-family: 'Mystery Quest', cursive;
-  font-size: 40px;
-  color: #FB7B66;
-  text-align: center;
-  margin-top: 10px;
-  padding-top: 1%;
-  padding-bottom: 1%
-}
 #fish {
 height: 200px;
 width: 600px;
 margin-top: 10px;
+margin-left: 20%;
+background-attachment: fixed;
 display: block;
+
+}
+
+h2 {
+  font-family: 'Mystery Quest', cursive;
+  font-size: 30px;
+  color: #FB7B66;
+  text-align: center;
+  margin-top: 10px;
+  padding-top: 1%;
+  padding-bottom: 0%
+
+}
+
+h3 {
+
+  font-family: 'BioRhyme Expanded', serif;
+  font-size: 25px;
+  text-align: center;
+  margin-top: 0%;
+  padding-top: 0%;
+
+}
+p {
+
+  font-family: 'BioRhyme Expanded', serif;
+  text-align: center;
+  padding-top: 0%;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+
+/*sales sheet*/
+#stores {
+
+  border: 5px solid darkgray;
+  padding: 5%;
+
+}
+
+#times {
+
+border: 1px solid black;
+
+}
+
+
+
+table {
+
+  width: 100%;
+  background-color: #D0FFCC;
+  font-family: helvetica;
+
+}
+table, th, td {
+
+  border: 1px solid black;
 
 }

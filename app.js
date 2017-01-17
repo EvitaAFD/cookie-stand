@@ -2,6 +2,8 @@
 
 var storeHours = ['Location','6AM', '7AM', '8AM', '9AM', '10AM', '11AM', '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', 'Total'];
 var stores = [];
+var grandTotal = 0;
+var results = [];
 
 //Object Constructor
 function Store (storeName, minCust, maxCust, avgCookSales){
@@ -18,7 +20,7 @@ Store.prototype.custNum = function(){
 //Method for each store
 Store.prototype.storeInfo = function(){
   for(var index = 1; index <= (storeHours.length - 2); index++) {
-    //number of cookies
+    //average number of cookies * random customer
     var numCookies = Math.round(this.custNum() * this.avgCookSales);
     console.log(numCookies);
     this.results.push(numCookies);
@@ -87,31 +89,32 @@ formEl.addEventListener('submit', function(event){
 }, false);
 
 //Total row
-function makeTotalRow(){
-  var rowElement = document.createElement('tr');
-  var dataElement = document.createElement('td');
-  dataElement.textContent = 'totals';
-  dataElement.setAttribute = ('class', 'locNameTable');
-  rowElement.appendChild(dataElement);
-  for(var i = 0; i < storeHours.length; i++){
-    for(var j = 0; j < stores.length; j++) {
-      results[i] += stores[j].totalCook;
-      console.log('results in for loop part 2 ', results[i]);
-    }
-    dataElement = document.createElement('td');
-    dataElement.textContent = results[i];
-    rowElement.appendChild(dataElement);
-  }
-  for(var i = 0; i < stores.length; i++){
-    grandTotal += stores[i].results;
-  }
-  dataElement = document.createElement('td');
-  dataElement.textContent = grandTotal;
-  dataElement.setAttribute('class', 'locNameTable');
-  rowElement.appendChild(dataElement);
-  table.appendChild(rowElement);
-};
-console.log('total row', makeTotalRow);
+// function makeTotalRow(){
+//   var rowElement = document.createElement('tr');
+//   var dataElement = document.createElement('td');
+//   dataElement.textContent = 'totals';
+//   dataElement.setAttribute = ('class', 'locNameTable');
+//   rowElement.appendChild(dataElement);
+//   for(var i = 0; i < storeHours.length; i++){
+//     for(var j = 0; j < stores.length; j++) {
+//       avgCookSales[i] += stores[j].results[j];
+//       // console.log('results in for loop part 2 ', avgCookSales[i]);
+//     }
+//     dataElement = document.createElement('td');
+//     dataElement.textContent = results[i];
+//     rowElement.appendChild(dataElement);
+//   }
+//   for(var i = 0; i < stores.length; i++){
+//     grandTotal += stores[i].results;
+//   }
+//   dataElement = document.createElement('td');
+//   dataElement.textContent = grandTotal;
+//   dataElement.setAttribute('class', 'locNameTable');
+//   rowElement.appendChild(dataElement);
+//   table.appendChild(rowElement);
+// };
+// makeTotalRow();
+// console.log('total row', makeTotalRow);
 
 //Instance of 1st and Pike Store
 var firstPike = new Store('First and Pike', 23, 65, 6.3);
