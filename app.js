@@ -84,8 +84,9 @@ var formEl = document.getElementById('sales-form');
 formEl.addEventListener('submit', function(event){
   event.preventDefault();
   event.stopPropagation();
+  console.log(typeof parseInt(event.target.maxCust.value));
 //push data from new store input provided by event listener, runs through table method, and appends to table
-  stores.push(new Store(event.target.storeName.value, event.target.minCust.value, event.target.maxCust.value, event.target.avgCookSales.value).table());
+  stores.push(new Store(event.target.storeName.value, parseInt(event.target.minCust.value), parseInt(event.target.maxCust.value), parseInt(event.target.avgCookSales.value)).table());
 }, false);
 
 //Total row
